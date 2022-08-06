@@ -6,10 +6,15 @@ const ingredients = [
   'Herbs',
   'Condiments',
 ]
-const listEl = document.querySelector('#ingredients')
-console.log(listEl)
 
-const itemEl = ingredients.reduce((str, item) => str + `<li>${item}</li>`, '')
-console.log(itemEl)
+const list = document.querySelector('#ingredients')
+const liArray = []
 
-listEl.innerHTML = itemEl
+ingredients.forEach((ingredient) => {
+  const item = document.createElement('li')
+  item.className = 'item'
+  item.textContent = ingredient
+  liArray.push(item)
+})
+
+list.append(...liArray)
